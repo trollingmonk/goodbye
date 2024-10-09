@@ -34,7 +34,7 @@ if file_image:
     if st.button("Download Sketch Images"):
         im_pil = Image.fromarray(final_sketch)
         im_pil.save('final_image.jpeg')
-        with open("flower.png", "rb") as file:
+        with open("final_image.jpeg", "rb") as file:
             st.download_button(
                 label="Download image",
                 data=file,
