@@ -1,7 +1,7 @@
-import streamlit as st #web app and camera
-import numpy as np # for image processing 
-from PIL import Image #Image processing 
-import cv2 #computer vision 
+import streamlit as st
+import numpy as np
+from PIL import Image 
+import cv2
 
 def dodgeV2(x, y):
     return cv2.divide(x, 255 - y, scale=256)
@@ -14,12 +14,8 @@ def pencilsketch(inp_img):
     return(final_img)
 
 
-st.title("PencilSketcher App - updated streamlit camera 📷 module")
-st.write("This Web App is to help convert your photos to realistic Pencil Sketches")
-
-# collect the user input 
-
-#file_image = st.sidebar.file_uploader("Upload your Photos", type=['jpeg','jpg','png'])
+st.title("Smile at camera 📷")
+st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
 
 # collecting the input image from user camera 
 
@@ -42,4 +38,4 @@ if file_image:
    
 
 else:
-     st.write("You haven't uploaded any image file")
+     st.write("Oooh something wrong with your Camera")
