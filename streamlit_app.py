@@ -34,13 +34,13 @@ if file_image:
     if st.button("Download Sketch Images"):
         im_pil = Image.fromarray(final_sketch)
         im_pil.save('final_image.jpeg')
-        st.write('Download completed')
-    with open('final_image.jpeg', "rb") as file:
-        btn = st.download_button(
-        label="Download image",
-        data=file,
-        file_name="final_image.jpeg",
-        mime="image/png")
+        with open('final_image.jpeg', "rb") as file:
+            btn = st.download_button(
+            data=file,
+            file_name="final_image.jpeg",
+            mime="image/png")
+            st.write('Download completed')
+    
 
   
 #else:
