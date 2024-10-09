@@ -35,11 +35,11 @@ if file_image:
         im_pil = Image.fromarray(final_sketch)
         im_pil.save('final_image.jpeg')
         with open('final_image.jpeg', "rb") as file:
-            btn = st.download_button(
-                label="Download",
-                data=file,
-                file_name='final_image.jpeg',
-                mime="image/png")
+            st.download_button(
+            label="Download",
+            data=file,
+            file_name='final_image.jpeg',
+            mime="image/png")
         st.write('Download completed')
     
 
