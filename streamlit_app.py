@@ -31,7 +31,7 @@ if file_image:
     with two:
         st.write("**Output Pencil Sketch**")
         st.image(final_sketch, use_column_width=True)
-    if st.button("I would like to Download Sketch Images"):
+    #if st.button("I would like to Download Sketch Images"):
         im_pil = Image.fromarray(final_sketch)
         im_pil.save('final_image.jpeg')
     with open('final_image.jpeg', "rb") as file:
