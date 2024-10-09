@@ -39,9 +39,8 @@ if file_image:
                 label="Download",
                 data=file,
                 file_name='final_image.jpeg',
-                mime="image/png",
-            )
-    st.write('Download completed')
+                mime="image/png",)
+        st.write('Download completed')
     
 
   
