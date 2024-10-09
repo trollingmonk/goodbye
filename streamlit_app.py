@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-from PIL import Image 
+from PIL import Image
 import cv2
 
 def dodgeV2(x, y):
