@@ -19,7 +19,7 @@ st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of
 
 # collecting the input image from user camera 
 
-file_image = st.camera_input(label = "Take a pic of you to be sketched out")
+file_image = st.camera_input(label = "Take a pic of you to be sketched out",label_visibility="hidden")
 
 if file_image:
     input_img = Image.open(file_image)
@@ -37,5 +37,5 @@ if file_image:
         st.write('Download completed')
    
 
-else:
-     st.write("Oooh something wrong with your Camera")
+#else:
+#     st.write("Oooh something wrong with your Camera")
