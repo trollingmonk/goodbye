@@ -40,7 +40,7 @@ if file_image:
             data=file,
             file_name="final_image.jpeg",
             mime="image/png")
-    st.write('Download completed')
+        st.write('Download completed')
     
 
   
