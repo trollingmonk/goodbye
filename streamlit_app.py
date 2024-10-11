@@ -4,9 +4,7 @@ from PIL import Image
 import cv2
 from pymongo import MongoClient
 
-ATLAS_URI = "mongodb+srv://sicaga9567:Pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-class AtlasClient ():
+class AtlasClient():
    def __init__ (self, altas_uri, dbname):
        self.mongodb_client = MongoClient(altas_uri)
        self.database = self.mongodb_client[dbname]
@@ -21,10 +19,11 @@ class AtlasClient ():
        items = list(collection.find(filter=filter, limit=limit))
        return items
 
-DB_NAME = 'sample_mflix'
-COLLECTION_NAME = 'embedded_movies'
-atlas_client = AtlasClient (ATLAS_URI, DB_NAME)
+ATLAS_URI="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+DB_NAME='sample_mflix'
+COLLECTION_NAME='embedded_movies'
+atlas_client=AtlasClient(ATLAS_URI, DB_NAME)
 atlas_client.ping()
 print ('Connected to Atlas instance! We are good to go!')
-movies = atlas_client.find (collection_name=COLLECTION_NAME, limit=5)
-print (f"Found {len (movies)} movies")
+movies=atlas_client.find(collection_name=COLLECTION_NAME,limit=15)
+print(f"Found {len (movies)} movies")
