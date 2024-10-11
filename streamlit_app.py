@@ -60,5 +60,7 @@ if file_image:
     image_bytes=io.BytesIO()
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
-    image_id=images.insert_one(image).inserted_id
+    #image_id=images.insert_one(image).inserted_id
+    result=images.insert_one({"woh":"image_bytes.getvalue()"})
+    st.write(result.acknowledged)
 
