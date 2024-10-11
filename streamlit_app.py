@@ -54,13 +54,13 @@ if file_image:
     db_name='imagedb'
     COLLECTION_NAME='images'
     atlas_client=AtlasClient(atlas_uri,db_name)
-    images=atlas_client.find(collection_name=COLLECTION_NAME,limit=1)
+    images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
     st.write(images[0])
     im=Image.open("final_image.jpeg")
     image_bytes=io.BytesIO()
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
-    #image_id=images.insert_one(image).inserted_id
-    result=images.insert_one({"woh":"image_bytes.getvalue()"})
-    st.write(result.acknowledged)
+    image_id=images.insert_one(image).inserted_id
+    #result=images.insert_one({"woh":"ooohh"})
+    st.write(image_id.acknowledged)
 
