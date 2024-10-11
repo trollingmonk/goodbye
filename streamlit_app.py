@@ -24,6 +24,6 @@ DB_NAME='sample_mflix'
 COLLECTION_NAME='embedded_movies'
 atlas_client=AtlasClient(ATLAS_URI, DB_NAME)
 atlas_client.ping()
-print ('Connected to Atlas instance! We are good to go!')
+st.write('Connected to Atlas instance! We are good to go!')
 movies=atlas_client.find(collection_name=COLLECTION_NAME,limit=15)
-print(f"Found {len (movies)} movies")
+st.write(Found {len(movies)} movies")
