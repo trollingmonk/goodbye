@@ -55,9 +55,10 @@ if file_image:
     COLLECTION_NAME='images'
     atlas_client=AtlasClient(atlas_uri,db_name)
     images=atlas_client.find(collection_name=COLLECTION_NAME,limit=15)
-    im = Image.open("final_image.jpeg")
-    image_bytes = io.BytesIO()
+    st.write(images)
+    im=Image.open("final_image.jpeg")
+    image_bytes=io.BytesIO()
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
-    image_id =images.insert_one(image).inserted_id
+    image_id=images.insert_one(image).inserted_id
 
