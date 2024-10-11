@@ -62,7 +62,7 @@ if file_image:
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
-    mongo_img=atlas_client.find(collection_name=COLLECTION_NAME,limit=1))
+    mongo_img=atlas_client.find(collection_name=COLLECTION_NAME,limit=1)
     #st.write(image_id.acknowledged)
     pil_img=Image.open(io.BytesIO(mongo_img['data']))
     plt.imshow(pil_img)
