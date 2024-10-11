@@ -2,5 +2,5 @@ streamlit
 numpy
 opencv-python-headless
 Pillow
-pymongo
+pymongo[srv]
 matplotlib
