@@ -26,5 +26,5 @@ atlas_client=AtlasClient(ATLAS_URI, DB_NAME)
 atlas_client.ping()
 st.write('Connected to Atlas instance! We are good to go!')
 movies=atlas_client.find(collection_name=COLLECTION_NAME,limit=15)
-while len(movies):
-   st.write(movies[0]["title"])
+for i in range(0,14):
+   st.write(movies[i]["title"])
