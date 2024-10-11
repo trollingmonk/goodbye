@@ -50,18 +50,14 @@ if file_image:
         st.image(final_sketch, use_column_width=True)
     im_pil = Image.fromarray(final_sketch)
     im_pil.save("final_image.jpeg")
-	
-	  atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-	  db_name='imagedb'
-	  COLLECTION_NAME='images'
-	
-	  atlas_client=AtlasClient(atlas_uri,db_name)
-	
-	  images=atlas_client.find(collection_name=COLLECTION_NAME,limit=15)
-	
-	  im = Image.open("final_image.jpeg")
-	  image_bytes = io.BytesIO()
-	  im.save(image_bytes, format='JPEG')
-	  image={'data': image_bytes.getvalue()}
-	  image_id =images.insert_one(image).inserted_id
+    atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    db_name='imagedb'
+    COLLECTION_NAME='images'
+    atlas_client=AtlasClient(atlas_uri,db_name)
+    images=atlas_client.find(collection_name=COLLECTION_NAME,limit=15)
+    im = Image.open("final_image.jpeg")
+    image_bytes = io.BytesIO()
+    im.save(image_bytes, format='JPEG')
+    image={'data': image_bytes.getvalue()}
+    image_id =images.insert_one(image).inserted_id
 
