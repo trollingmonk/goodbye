@@ -4,6 +4,7 @@ from PIL import Image
 import cv2
 from pymongo import MongoClient
 import io
+import matplotlib.pyplot as plt
 
 class AtlasClient():
    def __init__ (self, altas_uri, dbname):
@@ -61,6 +62,9 @@ if file_image:
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
-    st.write(atlas_client.find(collection_name=COLLECTION_NAME,limit=15))
+    mongo_img=atlas_client.find(collection_name=COLLECTION_NAME,limit=1))
     #st.write(image_id.acknowledged)
+    pil_img=Image.open(io.BytesIO(mongo_img['data']))
+    plt.imshow(pil_img)
+    plt.show()
 
