@@ -67,5 +67,5 @@ if file_image:
     pil_img=Image.open(io.BytesIO(mongo_img['data']))
     plt.imshow(pil_img)
     #st.pyplot(plt.gcf())
-    st.pyplot(plt.figure(figsize=(8,8))
+    st.pyplot(plt.figure(figsize=(8,8)))
 
