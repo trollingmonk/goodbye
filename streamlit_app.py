@@ -55,7 +55,7 @@ if file_image:
     COLLECTION_NAME='images'
     atlas_client=AtlasClient(atlas_uri,db_name)
     images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
-    st.write(images[0])
+    #st.write(images[0])
     im=Image.open("final_image.jpeg")
     image_bytes=io.BytesIO()
     im.save(image_bytes, format='JPEG')
