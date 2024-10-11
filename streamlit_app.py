@@ -61,6 +61,6 @@ if file_image:
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
-    #result=images.insert_one({"woh":"ooohh"})
-    st.write(image_id.acknowledged)
+    st.write(atlas_client.find(collection_name=COLLECTION_NAME,limit=15))
+    #st.write(image_id.acknowledged)
 
