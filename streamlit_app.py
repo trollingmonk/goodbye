@@ -60,7 +60,7 @@ if file_image:
 
     def previous_mongo_image():
         if st.session_state.count > 0:
-		st.session_state.count -= 1	
+            st.session_state.count -= 1	
 	
     display_mongo_image()
 
