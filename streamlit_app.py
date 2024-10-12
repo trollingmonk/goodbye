@@ -39,12 +39,13 @@ if file_image:
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
+    images_from_collection=images.find()
     
     if 'count' not in st.session_state:
         st.session_state.count=0	
 	
     if 'mongo_imgs' not in st.session_state:
-        st.session_state.mongo_imgs=images.find()
+        st.session_state.mongo_imgs=images_from_collection
 
     def display_mongo_image():
         img =st.session_state.mongo_imgs[st.session_state.count]
@@ -59,7 +60,7 @@ if file_image:
 
     def previous_mongo_image():
         if st.session_state.count > 0:
-        st.session_state.count -= 1	
+		st.session_state.count -= 1	
 	
     display_mongo_image()
 
