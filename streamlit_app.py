@@ -30,7 +30,7 @@ file_image = st.camera_input(label = "Take a pic of you to be sketched out",labe
 
 if file_image:
     input_img = Image.open(file_image)
-    im_pil = Image.fromarray(input_img)
+    #im_pil = Image.fromarray(input_img)
     im_pil.save("input_img.jpeg")
     
     atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
