@@ -29,9 +29,11 @@ st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of
 file_image = st.camera_input(label = "Take a pic of you to be sketched out",label_visibility="hidden")
 
 if file_image:
-    input_img = Image.open(file_image)
-    #im_pil = Image.fromarray(input_img)
-    im_pil.save("input_img.jpeg")
+    im = Image.open(file_image)
+    image_bytes = io.BytesIO()
+    im.save(image_bytes, format='JPEG')
+    image = {'data': image_bytes.getvalue()}
+    image_id = images.insert_one(image).inserted_id
     
     atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name='imagedb'
