@@ -48,4 +48,4 @@ if file_image:
     
     mongo_img=images.find_one()
     pil_img=Image.open(io.BytesIO(mongo_img['data']))
-	  st.image(pil_img)
+    st.image(pil_img)
