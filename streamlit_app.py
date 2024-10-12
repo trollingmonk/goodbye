@@ -40,37 +40,35 @@ if file_image:
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
     
-    
-
-if 'count' not in st.session_state:
-    st.session_state.count=0	
+    if 'count' not in st.session_state:
+        st.session_state.count=0	
 	
-if 'mongo_imgs' not in st.session_state:
-    st.session_state.mongo_imgs=images.find()
+    if 'mongo_imgs' not in st.session_state:
+        st.session_state.mongo_imgs=images.find()
 
-def display_mongo_image():
-    img =st.session_state.mongo_imgs[st.session_state.count]
-    pil_img=Image.open(io.BytesIO(img['data']))
-    st.image(pil_img)
+    def display_mongo_image():
+        img =st.session_state.mongo_imgs[st.session_state.count]
+        pil_img=Image.open(io.BytesIO(img['data']))
+        st.image(pil_img)
 
-def next_mongo_image():
-    if st.session_state.count + 1 >= len(st.session_state.mongo_imgs):
-        st.session_state.count = 0
-    else:
-        st.session_state.count += 1	
+    def next_mongo_image():
+        if st.session_state.count + 1 >= len(st.session_state.mongo_imgs):
+            st.session_state.count = 0
+        else:
+            st.session_state.count += 1	
 
-def previous_mongo_image():
-    if st.session_state.count > 0:
+    def previous_mongo_image():
+        if st.session_state.count > 0:
         st.session_state.count -= 1	
 	
-display_mongo_image()
+    display_mongo_image()
 
-col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-with col1:
-    if st.button("⏮️ Previous", on_click=previous_mongo_image):
-        pass
+    with col1:
+        if st.button("⏮️ Previous", on_click=previous_mongo_image):
+            pass
 
-with col2:
-    if st.button("Next ⏭️", on_click=next_mongo_image):
-        pass	
+    with col2:
+        if st.button("Next ⏭️", on_click=next_mongo_image):
+            pass	
