@@ -33,7 +33,7 @@ if 'quotes' not in st.session_state:
     st.session_state.quotes = result
 
 def display_quote():
-    quote = st.session_state.quotes[st.session_state.count][]
+    quote = st.session_state.quotes[st.session_state.count]
     st.write(quote)
 
 def next_quote():
