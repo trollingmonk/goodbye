@@ -53,3 +53,6 @@ if file_image:
     image_id=images.insert_one(image).inserted_id
     images_from_collection=list(images.find())
     st.write(len(images_from_collection))
+    if 'count' not in st.session_state:
+        st.session_state.count=0
+    st.session_state
