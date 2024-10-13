@@ -51,5 +51,5 @@ if file_image:
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
-    images_from_collection=images.find()
+    images_from_collection=list(images.find())
     st.write(images_from_collection)
