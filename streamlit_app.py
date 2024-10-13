@@ -33,7 +33,7 @@ def next_mongo_image():
 
 def previous_mongo_image():
     if st.session_state.count > 0:
-    st.session_state.count -= 1		
+        st.session_state.count -= 1		
 
 st.title("Smile at camera 📷")
 st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
