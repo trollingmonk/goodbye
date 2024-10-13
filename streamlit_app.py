@@ -59,7 +59,7 @@ if st.button('Get Imgaes'):
     images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
     result = list(images.find())
 
-for img in result:
-    pil_img=Image.open(io.BytesIO(img['data']))
+for i in result:
+    pil_img=Image.open(io.BytesIO(i['data']))
     st.image(pil_img)
        
