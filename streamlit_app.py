@@ -60,5 +60,5 @@ if st.button('Get Imgaes'):
     result = list(images.find())
     for img in result:
         pil_img=Image.open(io.BytesIO(img['data']))
-        st.image(pil_img
+        st.image(pil_img)
        
