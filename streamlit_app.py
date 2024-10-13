@@ -34,7 +34,9 @@ if 'quotes' not in st.session_state:
 
 def display_quote():
     quote = st.session_state.quotes[st.session_state.count]
-    st.write(quote)
+    #st.write(quote)
+    pil_img=Image.open(io.BytesIO(quote['data']))
+    st.image(pil_img)
 
 def next_quote():
     if st.session_state.count + 1 >= len(st.session_state.quotes):
