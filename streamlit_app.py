@@ -35,7 +35,7 @@ with st.container():
         db_name='imagedb'
         COLLECTION_NAME='images'
         atlas_client=AtlasClient(atlas_uri,db_name)
-        images=atlas_client.get_collection(collection_name=COLLECTION_N
+        images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
         im=Image.open(file_image)
         image_bytes=io.BytesIO()
         im.save(image_bytes, format='JPEG')
@@ -64,16 +64,16 @@ def previous_quote():
     if st.session_state.count > 0:
         st.session_state.count -= 1
 
-st.title("Imgaes")
+with st.container():
+    st.title("Imgaes")
+    display_quote()
 
-display_quote()
+    col1, col2 = st.columns(2)
 
-col1, col2 = st.columns(2)
+    with col1:
+        if st.button("⏮️ Previous", on_click=previous_quote):
+            pass
 
-with col1:
-    if st.button("⏮️ Previous", on_click=previous_quote):
-        pass
-
-with col2:
-    if st.button("Next ⏭️", on_click=next_quote):
-        pass
+    with col2:
+        if st.button("Next ⏭️", on_click=next_quote):
+           pass
