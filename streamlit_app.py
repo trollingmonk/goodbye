@@ -42,6 +42,9 @@ with st.container():
     atlas_client=AtlasClient(atlas_uri,db_name)
     images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
     result = list(images.find())
-    st.write(result)
+    while i < len(result):
+        pil_img=Image.open(io.BytesIO(result[i]['data']))
+        st.image(pil_img)
+        
         
 
