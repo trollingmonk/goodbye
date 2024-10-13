@@ -52,4 +52,4 @@ if file_image:
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
     images_from_collection=list(images.find())
-    st.write(images_from_collection)
+    st.write(len(images_from_collection))
