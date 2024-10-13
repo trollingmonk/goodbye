@@ -17,7 +17,7 @@ class AtlasClient():
        return collection
    def find(self, collection_name, filter = {}, limit=0):
        collection = self.database[collection_name]
-       items = list(collection.find(filter=filter, limit=limit))
+       items = to_list(collection.find(filter=filter, limit=limit))
        return items
 
 def display_mongo_image():
