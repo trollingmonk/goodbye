@@ -1,20 +1,39 @@
-
 import streamlit as st
+from PIL import Image
+from pymongo import MongoClient
+import io
+
+
+class AtlasClient():
+   def __init__ (self, altas_uri, dbname):
+       self.mongodb_client = MongoClient(altas_uri)
+       self.database = self.mongodb_client[dbname]
+   def ping(self):
+       self.mongodb_client.admin.command('ping')
+   def get_collection(self, collection_name):
+       collection = self.database[collection_name]
+       return collection
+   def find(self, collection_name, filter = {}, limit=0):
+       collection = self.database[collection_name]
+       items = collection.find(filter=filter, limit=limit)
+       return items
+
+atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+db_name='imagedb'
+COLLECTION_NAME='images'
+atlas_client=AtlasClient(atlas_uri,db_name)
+images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
+result = list(images.find())
+st.write(result)
 
 if 'count' not in st.session_state:
     st.session_state.count = 0
 
 if 'quotes' not in st.session_state:
-    st.session_state.quotes = [
-        "Life is what happens when you're busy making other plans. — John Lennon",
-        "Get busy living or get busy dying. — Stephen King",
-        "You only live once, but if you do it right, once is enough. — Mae West",
-        "Many of life’s failures are people who did not realize how close they were to success when they gave up. — Thomas A. Edison",
-        "If you want to live a happy life, tie it to a goal, not to people or things. — Albert Einstein"
-    ]
+    st.session_state.quotes = result
 
 def display_quote():
-    quote = st.session_state.quotes[st.session_state.count]
+    quote = st.session_state.quotes[st.session_state.count][]
     st.write(quote)
 
 def next_quote():
