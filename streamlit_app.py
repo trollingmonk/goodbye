@@ -35,7 +35,7 @@ with st.container():
         image={'data': image_bytes.getvalue()}
         image_id=images.insert_one(image).inserted_id
 
-with st.container():
+with st.beta_container():
     atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name='imagedb'
     COLLECTION_NAME='images'
@@ -44,7 +44,6 @@ with st.container():
     result = list(images.find())
     for img in result:
         pil_img=Image.open(io.BytesIO(img['data']))
-        st.image(pil_img)
-        
-        
+        for col in st.beta_columns(4):
+            col.image(pil_img, width=150) 
 
