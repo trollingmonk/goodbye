@@ -24,7 +24,16 @@ COLLECTION_NAME='images'
 atlas_client=AtlasClient(atlas_uri,db_name)
 images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
 result = list(images.find())
-st.write(result)
+
+st.title("Smile at camera 📷")
+st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
+
+file_image = st.camera_input(label = "Take a pic of you to be sketched out",label_visibility="hidden")
+im=Image.open(file_image)
+image_bytes=io.BytesIO()
+im.save(image_bytes, format='JPEG')
+image={'data': image_bytes.getvalue()}
+image_id=images.insert_one(image).inserted_id
 
 if 'count' not in st.session_state:
     st.session_state.count = 0
