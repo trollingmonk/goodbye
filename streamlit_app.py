@@ -52,26 +52,4 @@ if file_image:
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
     images_from_collection=images.find()
-	
     st.write(images_from_collection)
-    st.session_state
-	
-    if 'count' not in st.session_state:
-        st.session_state.count=0	
-	
-    st.session_state
-    
-    if 'mongo_imgs' not in st.session_state:
-        st.session_state.mongo_imgs=images_from_collection
-
-    display_mongo_image()
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if st.button("⏮️ Previous", on_click=previous_mongo_image):
-            pass
-
-    with col2:
-        if st.button("Next ⏭️", on_click=next_mongo_image):
-            pass	
