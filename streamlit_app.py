@@ -24,7 +24,7 @@ def save_image(image):
     COLLECTION_NAME='images'
     atlas_client=AtlasClient(atlas_uri,db_name)
     images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
-    im=Image.open(file_image)
+    im=Image.open(image)
     image_bytes=io.BytesIO()
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
@@ -43,9 +43,9 @@ if st.button("Take Camera Input"):
         st.image(image, caption='Captured Image', use_column_width=True)
 
         # Button to save image
-        if st.button("Save Greeting"):
+        if st.button("Save your Greeting"):
             save_image(image)
-            st.success("Image saved to MongoDB successfully!")
+            st.success("Image saved successfully!")
 		
 # Function to retrieve images
 def get_images():
