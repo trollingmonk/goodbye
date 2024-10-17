@@ -41,14 +41,14 @@ def get_images():
     db_name='imagedb'
     COLLECTION_NAME='images'
     atlas_client=AtlasClient(atlas_uri,db_name)
-    images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
+    images=atlas_client.find(collection_name=COLLECTION_NAME)
     return [image['data'] for image in images]
 
 # Streamlit app
 st.title("Image Gallery")
 
 if st.button("Load Images"):
-    images_data = list(get_images())
+    images_data = get_images()
     cols = st.columns(4)
     
     for i, img_data in enumerate(images_data):
