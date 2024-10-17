@@ -51,6 +51,6 @@ if st.button("Load Images"):
     images_data = get_images()
     cols = st.columns(4)
     
-    for i, img_data in enumerate(images_data):
-        image = Image.open(io.BytesIO(img_data['data']))
+    for img in images_data:
+        pil_img=Image.open(io.BytesIO(img['data']))
         cols[i % 4].image(image, use_column_width=True)
