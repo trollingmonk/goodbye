@@ -34,7 +34,7 @@ if st.button("Take Camera Input"):
             COLLECTION_NAME='images'
             atlas_client=AtlasClient(atlas_uri,db_name)
             images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
-            im=Image.open(image)
+            im=Image.open(file_image)
             image_bytes=io.BytesIO()
             im.save(image_bytes, format='JPEG')
             image={'data': image_bytes.getvalue()}
