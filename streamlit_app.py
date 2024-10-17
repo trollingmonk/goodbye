@@ -48,7 +48,7 @@ def get_images():
 st.title("Image Gallery")
 
 if st.button("Load Images"):
-    images_data = get_images()
+    images_data = list(get_images())
     cols = st.columns(4)
     
     for i, img_data in enumerate(images_data):
