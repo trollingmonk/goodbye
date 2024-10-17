@@ -56,7 +56,7 @@ if st.button("Load Images"):
     #    cols[i % 4].image(pil_img, use_column_width=True)
     #cols = st.columns(4)
     for i in range(4):
-        for j in range(4):
+        for j in range(len(images_data)):
             index = i * 4 + j
             if index < len(images_data):
                 cols[j].image(images_data[index], caption=f"Image {index + 1}")
