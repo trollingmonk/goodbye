@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 from pymongo import MongoClient
 import io
+import base64
 
 
 class AtlasClient():
