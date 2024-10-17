@@ -2,7 +2,6 @@ import streamlit as st
 from PIL import Image
 from pymongo import MongoClient
 import io
-import base64
 
 
 class AtlasClient():
@@ -53,5 +52,5 @@ if st.button("Load Images"):
     cols = st.columns(4)
     
     for i, img_data in enumerate(images_data):
-        image = Image.open(io.BytesIO(base64.b64decode(img_data)))
+        image = Image.open(io.BytesIO(img['data']))
         cols[i % 4].image(image, use_column_width=True)
