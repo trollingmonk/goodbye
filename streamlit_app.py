@@ -52,5 +52,5 @@ if st.button("Load Images"):
     cols = st.columns(4)
     
     for i, img_data in enumerate(images_data):
-        image = Image.open(io.BytesIO(img['data']))
+        image = Image.open(io.BytesIO(img_data['data']))
         cols[i % 4].image(image, use_column_width=True)
