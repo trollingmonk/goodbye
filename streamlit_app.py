@@ -53,4 +53,10 @@ if st.button("Load Images"):
     st.write(len(images_data))
     for img in images_data:
         pil_img=Image.open(io.BytesIO(img['data']))
-        cols[i % 4].image(image, use_column_width=True)
+        cols[i % 4].image(pil_img, use_column_width=True)
+    #cols = st.columns(4)
+    #for i in range(4):
+    #    for j in range(4):
+    #        index = i * 4 + j
+    #        if index < len(images_data):
+    #            cols[j].image(image_list[index], caption=f"Image {index + 1}")
