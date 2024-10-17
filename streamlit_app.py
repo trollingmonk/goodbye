@@ -21,7 +21,7 @@ class AtlasClient():
 st.title("Smile at camera 📷")
 st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
 
-file_image = st.camera_input("Capture an image")
+file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
     image = Image.open(file_image)
     st.image(image, caption='Captured Image', use_column_width=True)
@@ -38,7 +38,7 @@ if file_image:
         im.save(image_bytes, format='JPEG')
         image={'data': image_bytes.getvalue()}
         image_id=images.insert_one(image).inserted_id
-        st.success("Image saved successfully!")
+        st.success("Your Greeting has been Captured Successfully!")
 		
 # Function to retrieve images
 def get_images():
@@ -50,9 +50,9 @@ def get_images():
     return [image['data'] for image in images]
 
 # Streamlit app
-st.title("Image Gallery")
+st.title("Greeting Gallery for Peoples who wished him ")
 
-if st.button("Load Images"):
+if st.button("Load Greets"):
     images_data = get_images()
     cols = st.columns(4)
     st.write(len(images_data))
