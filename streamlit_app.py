@@ -18,23 +18,8 @@ class AtlasClient():
        items = collection.find(filter=filter, limit=limit)
        return items
 
-def save_image(image):
-    atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    db_name='imagedb'
-    COLLECTION_NAME='images'
-    atlas_client=AtlasClient(atlas_uri,db_name)
-    images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
-    im=Image.open(image)
-    image_bytes=io.BytesIO()
-    im.save(image_bytes, format='JPEG')
-    image={'data': image_bytes.getvalue()}
-    image_id=images.insert_one(image).inserted_id
-
-
 st.title("Smile at camera 📷")
 st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
-
-cols = st.columns(2)
 
 if st.button("Take Camera Input"):
     file_image = st.camera_input("Capture an image")
@@ -44,7 +29,16 @@ if st.button("Take Camera Input"):
 
         # Button to save image
         if st.button("Save your Greeting"):
-            save_image(image)
+            atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+            db_name='imagedb'
+            COLLECTION_NAME='images'
+            atlas_client=AtlasClient(atlas_uri,db_name)
+            images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
+            im=Image.open(image)
+            image_bytes=io.BytesIO()
+            im.save(image_bytes, format='JPEG')
+            image={'data': image_bytes.getvalue()}
+            image_id=images.insert_one(image).inserted_id
             st.success("Image saved successfully!")
 		
 # Function to retrieve images
