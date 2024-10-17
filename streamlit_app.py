@@ -18,11 +18,7 @@ class AtlasClient():
        items = collection.find(filter=filter, limit=limit)
        return items
 
-st.title("Smile at camera 📷")
-st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
-
-file_image = st.camera_input(label = "Take a pic of you to be sketched out",label_visibility="hidden")
-if file_image:
+def save_image(image):
     atlas_uri="mongodb+srv://sicaga9567:pohapoha123@cluster0.nb0qv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     db_name='imagedb'
     COLLECTION_NAME='images'
@@ -33,6 +29,23 @@ if file_image:
     im.save(image_bytes, format='JPEG')
     image={'data': image_bytes.getvalue()}
     image_id=images.insert_one(image).inserted_id
+
+
+st.title("Smile at camera 📷")
+st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
+
+cols = st.columns(2)
+
+if st.button("Take Camera Input"):
+    file_image = st.camera_input("Capture an image")
+    if file_image is not None:
+        image = Image.open(file_image)
+        st.image(image, caption='Captured Image', use_column_width=True)
+
+        # Button to save image
+        if st.button("Save Greeting"):
+            save_image(image)
+            st.success("Image saved to MongoDB successfully!")
 		
 # Function to retrieve images
 def get_images():
