@@ -50,7 +50,7 @@ st.title("Image Gallery")
 if st.button("Load Images"):
     images_data = get_images()
     cols = st.columns(4)
-    
+    st.write(len(images_data))
     for img in images_data:
         pil_img=Image.open(io.BytesIO(img['data']))
         cols[i % 4].image(image, use_column_width=True)
