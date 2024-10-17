@@ -21,11 +21,10 @@ class AtlasClient():
 st.title("Smile at camera 📷")
 st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
 
-if st.button("Take Camera Input"):
-    file_image = st.camera_input("Capture an image")
-    if file_image:
-        image = Image.open(file_image)
-        st.image(image, caption='Captured Image', use_column_width=True)
+file_image = st.camera_input("Capture an image")
+if file_image:
+    image = Image.open(file_image)
+    st.image(image, caption='Captured Image', use_column_width=True)
 
         # Button to save image
     if st.button("Save your Greeting"):
