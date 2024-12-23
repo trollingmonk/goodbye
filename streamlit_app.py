@@ -54,10 +54,10 @@ def get_images():
 st.title("Greeting Gallery for Peoples who wished him ")
 
 if st.button("Load Greets"):
-    images_data = threading.Thread(target=get_images)
-    images_data.start()
-    images_data.join()
-    #images_data = get_images()
+    #images_data = threading.Thread(target=get_images)
+    #images_data.start()
+    #images_data.join()
+    images_data = get_images()
     cols = st.columns(4)
     st.write(len(images_data))
     #for img in images_data:
