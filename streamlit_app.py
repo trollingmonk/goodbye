@@ -19,7 +19,7 @@ class AtlasClient():
        items = collection.find(filter=filter, limit=limit)
        return items
 
-st.header("Say Goodbye to Rahul Pawar by with a Pic 📸", divider=True)
+st.header("Say Goodbye to Rahul Pawar with a Pic 📸", divider=True)
 
 file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
