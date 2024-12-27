@@ -25,9 +25,11 @@ file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
     image = Image.open(file_image)
     st.image(image, caption='It is You ✌️', use_container_width=True)
-
-        # Button to save image
-    if st.button("Save your Photographic Greet"):
+    one, two, three = st.columns(3)
+    one.button(":sparkles:", use_container_width=True,disabled=True)
+    three.button(":star2:", use_container_width=True,disabled=True)
+    # Button to save image
+    if two.button("Save your Photographic Greet"):
         atlas_uri=st.secrets["database_uri"]
         db_name='imagedb'
         COLLECTION_NAME='images'
