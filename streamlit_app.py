@@ -19,7 +19,7 @@ class AtlasClient():
        items = collection.find(filter=filter, limit=limit)
        return items
 
-st.header("Say Goodbye to Rahul Pawar with a Pic 📸", divider=True)
+st.header("Say Goodbye to Rahul with a Picture 📸", divider=True)
 
 file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
@@ -38,7 +38,7 @@ if file_image:
         im.save(image_bytes, format='JPEG')
         image={'data': image_bytes.getvalue()}
         image_id=images.insert_one(image).inserted_id
-        st.success("Your Greeting has been saved in Memory Ledger :ledger: !")
+        st.success("Your Greeting has been saved in Memory Ledger 📓!")
 		
 # Function to retrieve images
 def get_images():
@@ -50,7 +50,7 @@ def get_images():
     return [image['data'] for image in images]
 
 st.header(" ", divider=True)
-if st.button("View Greets by All Folks 🎥"):
+if st.button("      View Greets by All Folks 🎥      "):
     pool = ThreadPool(processes=1)
     thread = pool.apply_async(get_images)
     images_data = thread.get()
