@@ -64,3 +64,4 @@ if middle.button("View Greets by All Folks 🎥",use_container_width=True):
             if index < len(images_data):
                 cols[j].image(images_data[index])
     st.balloons()
+st.header(" ", divider=True)
