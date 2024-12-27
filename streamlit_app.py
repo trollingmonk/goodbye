@@ -25,7 +25,7 @@ st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of
 file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
     image = Image.open(file_image)
-    st.image(image, caption='It's You :v:', use_container_width=True)
+    st.image(image, caption='It is You ✌️', use_container_width=True)
 
         # Button to save image
     if st.button("Save your Greeting"):
@@ -39,7 +39,7 @@ if file_image:
         im.save(image_bytes, format='JPEG')
         image={'data': image_bytes.getvalue()}
         image_id=images.insert_one(image).inserted_id
-        st.success("Your Greeting has been Captured Successfully!")
+        st.success("Your Greeting has been saved in Memory Ledger :ledger: !")
 		
 # Function to retrieve images
 def get_images():
@@ -53,8 +53,8 @@ def get_images():
 # Streamlit app
 st.title("Greeting Gallery for Peoples who wished him ")
 
-if st.button("Load Greets"):
-    pool = ThreadPool(processes=2)
+if st.button("See Greets by All Folks"):
+    pool = ThreadPool(processes=1)
     thread = pool.apply_async(get_images)
     images_data = thread.get()
     cols = st.columns(4)
