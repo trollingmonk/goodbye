@@ -49,7 +49,7 @@ def get_images():
     images=atlas_client.find(collection_name=COLLECTION_NAME)
     return [image['data'] for image in images]
 
-st.header("", divider=True)
+st.header(" ", divider=True)
 if st.button("View Greets by All Folks 🎥"):
     pool = ThreadPool(processes=1)
     thread = pool.apply_async(get_images)
