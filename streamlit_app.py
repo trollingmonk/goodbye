@@ -54,7 +54,7 @@ def get_images():
 st.title("Greeting Gallery for Peoples who wished him ")
 
 if st.button("Load Greets"):
-    pool = ThreadPool(processes=1)
+    pool = ThreadPool(processes=2)
     thread = pool.apply_async(get_images)
     images_data = thread.get()
     cols = st.columns(4)
