@@ -53,8 +53,8 @@ def get_images():
 
 st.header(" ", divider=True)
 left, middle, right = st.columns(3)
-left.button(":floppy_disk:", use_container_width=True,disabled=True)
-right.button(":minidisc:", use_container_width=True,disabled=True)
+left.button(":maple_leaf:", use_container_width=True,disabled=True)
+right.button(":fallen_leaf:", use_container_width=True,disabled=True)
 if middle.button("View All Greets 🎥",use_container_width=True):
     pool = ThreadPool(processes=1)
     thread = pool.apply_async(get_images)
