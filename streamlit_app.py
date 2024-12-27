@@ -59,5 +59,5 @@ if st.button("View Greets by All Folks 🎥"):
         for j in range(4):
             index = i * 4 + j
             if index < len(images_data):
-                cols[j].image(images_data[index], caption=f"Image {index + 1}")
+                cols[j].image(images_data[index]")
     st.balloons()
