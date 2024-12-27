@@ -50,7 +50,10 @@ def get_images():
     return [image['data'] for image in images]
 
 st.header(" ", divider=True)
-if st.button("      View Greets by All Folks 🎥      "):
+left, middle, right = st.columns(3)
+left.button(" ", use_container_width=True,disabled=True)
+right.button(" ", use_container_width=True,disabled=True)
+if middle.button("View Greets by All Folks 🎥",use_container_width=True):
     pool = ThreadPool(processes=1)
     thread = pool.apply_async(get_images)
     images_data = thread.get()
