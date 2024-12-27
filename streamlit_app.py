@@ -25,7 +25,7 @@ st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of
 file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
     image = Image.open(file_image)
-    st.image(image, caption='Captured Image', use_column_width=True)
+    st.image(image, caption='Captured Image', use_container_width=True)
 
         # Button to save image
     if st.button("Save your Greeting"):
@@ -58,7 +58,6 @@ if st.button("Load Greets"):
     thread = pool.apply_async(get_images)
     images_data = thread.get()
     cols = st.columns(4)
-    st.write(len(images_data))
     for i in range(len(images_data)):
         for j in range(4):
             index = i * 4 + j
