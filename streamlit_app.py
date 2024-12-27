@@ -19,8 +19,7 @@ class AtlasClient():
        items = collection.find(filter=filter, limit=limit)
        return items
 
-st.title("Smile at camera 📷")
-st.write("Say Goodbye to Rahul Pawar by with a Pic 📸")
+st.header("Say Goodbye to Rahul Pawar by with a Pic 📸", divider=True)
 
 file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
@@ -61,3 +60,4 @@ if st.button("View Greets by All Folks 🎥"):
             index = i * 4 + j
             if index < len(images_data):
                 cols[j].image(images_data[index], caption=f"Image {index + 1}")
+    st.balloons()
