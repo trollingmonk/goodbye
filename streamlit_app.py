@@ -20,7 +20,7 @@ class AtlasClient():
        return items
 
 st.title("Smile at camera 📷")
-st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of Luck")
+st.write("Say Goodbye to Rahul Pawar by with a Pic 📸")
 
 file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
@@ -28,7 +28,7 @@ if file_image:
     st.image(image, caption='It is You ✌️', use_container_width=True)
 
         # Button to save image
-    if st.button("Save your Greeting"):
+    if st.button("Save your Photographic Greet"):
         atlas_uri=st.secrets["database_uri"]
         db_name='imagedb'
         COLLECTION_NAME='images'
@@ -50,10 +50,8 @@ def get_images():
     images=atlas_client.find(collection_name=COLLECTION_NAME)
     return [image['data'] for image in images]
 
-# Streamlit app
-st.title("Greeting Gallery for Peoples who wished him ")
 
-if st.button("See Greets by All Folks"):
+if st.button("View Greets by All Folks 🎥"):
     pool = ThreadPool(processes=1)
     thread = pool.apply_async(get_images)
     images_data = thread.get()
