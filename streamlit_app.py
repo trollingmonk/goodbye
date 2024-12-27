@@ -25,7 +25,7 @@ st.write("This is your chance to say Goodbye to Rahul Pawar and Wish him Best of
 file_image = st.camera_input("Capture an image",label_visibility="hidden")
 if file_image:
     image = Image.open(file_image)
-    st.image(image, caption='Captured Image', use_container_width=True)
+    st.image(image, caption='It's You :v:', use_container_width=True)
 
         # Button to save image
     if st.button("Save your Greeting"):
