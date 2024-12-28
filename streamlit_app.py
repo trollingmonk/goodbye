@@ -31,8 +31,8 @@ if file_image:
     # Button to save image
     if two.button("Save your Photographic Greet"):
         atlas_uri=st.secrets["database_uri"]
-        db_name='imagedb'
-        COLLECTION_NAME='images'
+        db_name=st.secrets["db_name"]
+        COLLECTION_NAME=st.secrets["collection_name"]
         atlas_client=AtlasClient(atlas_uri,db_name)
         images=atlas_client.get_collection(collection_name=COLLECTION_NAME)
         im=Image.open(file_image)
