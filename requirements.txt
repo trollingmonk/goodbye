@@ -1,6 +1,3 @@
 streamlit
-numpy
-opencv-python-headless
 Pillow
 pymongo[srv]
-matplotlib
